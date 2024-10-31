@@ -1,11 +1,8 @@
 # orders/urls.py
 from django.urls import path
-from . import views
-
-app_name = 'orders'
-
-# Основная страница оформления заказа
+from .views import create_order
 
 urlpatterns = [
-    path('create/', views.create_order, name='create_order')
+    path('new/', create_order, name='create_order'),
 ]
+

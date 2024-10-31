@@ -1,18 +1,19 @@
+# orders/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Order
 from .forms import OrderForm
+from bot.bot import notify_order
 
-@login_required
-def create_order(request, flower_id):
+def create_order(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             order = form.save(commit=False)
             order.user = request.user
             order.save()
-            return redirect('flower_catalog:flower_list')
+            notify_order(f"New order from {order.user.username}: {order.flower.name} to {order.delivery_address}")
+            return redirect('flower_list')
     else:
-        form = OrderForm(initial={'flower': flower_id})
-    return render(request, 'orders/order_form.html', {'form': form})
+        form = OrderForm()
+    return render(request, 'orders/create_order.html', {'form': form})
+
 

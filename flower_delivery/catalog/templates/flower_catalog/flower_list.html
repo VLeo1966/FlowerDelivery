@@ -1,0 +1,10 @@
+<!-- catalog/flower_list.html -->
+<h2>Каталог Букетов</h2>
+<ul>
+    {% for flower in flowers %}
+        <li>
+            {{ flower.name }} - ${{ flower.price }}
+            <p>{{ flower.description }}</p>
+        </li>
+    {% endfor %}
+</ul>

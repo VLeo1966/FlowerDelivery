@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'users',
-    'flower_catalog',
+    'catalog',
     'orders',
     'bot',
     'django.contrib.admin',
