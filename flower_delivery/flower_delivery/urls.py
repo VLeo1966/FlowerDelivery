@@ -12,7 +12,7 @@ urlpatterns = [
     path('users/', include('users.urls')),  # Routes for registration, login, logout
 
     # Flower catalog routes
-    path('flower_catalog/', include('flower_catalog.urls', namespace='flower_catalog')),  # Catalog viewing
+    path('catalog/', include('flower_catalog.urls', namespace='flower_catalog')),  # Catalog viewing
 
     # Order creation and management
     path('orders/', include('orders.urls', namespace='orders')),  # Order form and details
