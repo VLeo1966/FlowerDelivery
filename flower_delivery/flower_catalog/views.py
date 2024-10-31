@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
-# Create your views here.
 
-def index(request):
-    return HttpResponse("<h1>Это проект цветы.<h1>")
+def flower_list(request):
+    return render(request, 'flower_catalog/flower_list.html')
