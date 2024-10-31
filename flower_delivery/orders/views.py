@@ -1,7 +1,7 @@
 # orders/views.py
 from django.shortcuts import render, redirect
 from .forms import OrderForm
-from bot.bot import notify_order
+from flower_delivery.bot.bot import notify_order
 
 def create_order(request):
     if request.method == 'POST':

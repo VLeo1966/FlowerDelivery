@@ -1,11 +1,11 @@
 # orders/models.py
 from django.db import models
 from django.contrib.auth.models import User
-from catalog.models import flower
+from flower_delivery.catalog.models import Flower
 
 class order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    flower = models.ForeignKey(flower, on_delete=models.CASCADE)
+    flower = models.ForeignKey(Flower, on_delete=models.CASCADE)
     delivery_address = models.CharField(max_length=255)
     order_date = models.DateTimeField(auto_now_add=True)
 
